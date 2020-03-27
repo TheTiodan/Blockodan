@@ -6,7 +6,6 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     //configuration parameters
-    [SerializeField] int maxHits;
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blocksSparklesVFX;
     [SerializeField] Sprite[] hitSprites;
@@ -43,6 +42,7 @@ public class Block : MonoBehaviour
     private void HandleHit()
     {
         timesHit++;
+        int maxHits = hitSprites.Length + 1;
         if (timesHit >= maxHits)
         {
             DestroyBlock();
